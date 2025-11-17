@@ -11,8 +11,7 @@ public enum EncoderNameEnum {
     // DRIVING STUFF
     DRIVING_CAR("driving-car", 1),
     DRIVING_HGV("driving-hgv", 2),
-    @JsonIgnore
-    DRIVING_EMERGENCY("driving-emergency", 3), // not supported
+    DRIVING_EMERGENCY("driving-emergency", 3),
     @JsonIgnore
     DRIVING_CAROFFROAD("driving-caroffroad", 4), // not supported
     @JsonIgnore
