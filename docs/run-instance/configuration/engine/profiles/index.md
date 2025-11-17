@@ -21,13 +21,14 @@ The provided flag encoders correspond to a specific vehicle type and must be set
 
 | Possible values for `encoder_name` |
 |------------------------------------|
-| `driving-car`                      | 
-| `driving-hgv`                      | 
-| `cycling-regular`                  | 
-| `cycling-mountain`                 | 
-| `cycling-road`                     | 
-| `cycling-electric`                 | 
-| `foot-walking`                     | 
+| `driving-car`                      |
+| `driving-hgv`                      |
+| `driving-emergency`                |
+| `cycling-regular`                  |
+| `cycling-mountain`                 |
+| `cycling-road`                     |
+| `cycling-electric`                 |
+| `foot-walking`                     |
 | `foot-hiking`                      | 
 | `wheelchair`                       | 
 | `public-transport` (experimental)  | 
@@ -39,6 +40,9 @@ e.g. `ors.engine.profiles.driving-car.enabled=true`.
 Setting `encoder_name` is obviously not necessary for a default profile.
 You can further customize such a profile by overriding the
 [internal defaults](/run-instance/configuration/how-to-configure.md#internal-defaults).
+For a complete example that enables the `driving-emergency` encoder
+and exposes the corresponding `driving-emergency` profile to the HTTP API,
+see the [emergency routing profile configuration](driving-emergency.md).
 
 The `ors.engine.profile_default` object is used to define default values for _all profiles_.
 It takes the same properties as the `profiles` object,
