@@ -45,14 +45,29 @@ public class EmergencyFlagEncoder extends VehicleFlagEncoder {
     }
 
     public EmergencyFlagEncoder(PMap properties) {
-        this(properties.getInt("speed_bits", 5),
+        super(properties.getInt("speed_bits", 5),
                 properties.getDouble("speed_factor", 5),
                 properties.getBool("turn_costs", false) ? 3 : 0);
-        blockFords(false);
+        initProperties(properties);
+        initEncoder();
     }
 
     public EmergencyFlagEncoder(int speedBits, double speedFactor, int maxTurnCosts) {
         super(speedBits, speedFactor, maxTurnCosts);
+        initProperties(null);
+        initEncoder();
+    }
+
+    private void initProperties(PMap properties) {
+        if (properties != null) {
+            setProperties(properties);
+        } else {
+            speedTwoDirections = true;
+        }
+        blockFords(false);
+    }
+
+    private void initEncoder() {
         restrictions.addAll(Arrays.asList("motorcar", "motor_vehicle", "vehicle", "access"));
         restrictedValues.add("private");
         restrictedValues.add(KEY_AGRICULTURAL);
