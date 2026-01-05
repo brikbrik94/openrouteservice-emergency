@@ -62,9 +62,16 @@ public class EmergencyFlagEncoder extends VehicleFlagEncoder {
         if (properties != null) {
             setProperties(properties);
         } else {
+            // falls keine speziellen Properties übergeben werden, Standard setzen
             speedTwoDirections = true;
         }
+
+        // Einsatzfahrzeuge sollen durch Furten fahren dürfen
         blockFords(false);
+
+        // WICHTIG: für das Emergency-Profil Barrieren nicht als Blocker behandeln
+        // (barrier=lift_gate, gate, etc. blockieren dieses Profil nicht mehr)
+        blockBarriers(false);
     }
 
     private void initEncoder() {
